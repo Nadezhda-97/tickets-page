@@ -16,8 +16,45 @@ h3 {
   padding: 20px;
 }
 
+.language-buttons-container {
+  display: flex;
+  flex-direction: column; /* Вертикальное расположение кнопок */
+  align-items: flex-end; /* Выравнивание кнопок по правому краю */
+  margin-right: 20px; /* Отступ справа */
+}
+
+/* Стили для кнопок переключения языков */
+.language-button {
+  display: block; /* Располагаем кнопки одна над другой */
+  width: 150px; /* Фиксированная ширина для одинакового размера */
+  padding: 10px; /* Упрощаем отступы для равномерного размера */
+  font-size: 16px;
+  border: 1px solid #ccc;
+  background-color: white; /* Светло-голубой фон для неактивной кнопки */
+  color: black; /* Цвет текста */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s; /* Плавный переход цвета и эффекта при клике */
+}
+
+/* Стили для кнопок при наведении */
+.language-button:hover {
+  background-color: #87ceeb; /* Цвет фона при наведении */
+}
+
+/* Стили для активной кнопки */
+.language-button.active {
+  background-color: #007bff; /* Синий фон для активной кнопки */
+  color: white; /* Цвет текста для активной кнопки */
+}
+/* Эффект при клике */
+.language-button:active {
+  transform: scale(0.95); /* Уменьшаем кнопку при клике */
+}
+
 .filters {
   position: sticky;
+  top: 10px; /* Отступ от верхней части окна */
+  z-index: 1000; /* Убедитесь, что контейнер поверх других элементов */
   width: 30%;
   height: 20%;
   padding: 20px;
