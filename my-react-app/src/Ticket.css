@@ -17,18 +17,27 @@
 
 .ticket-left {
   display: flex;
+  flex: 1; /* Занимает 1 часть пространства */
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
 }
 
+.airline-logo {
+    width: 50%; /* Ширина логотипа */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+    margin-bottom: 10px;
+  }
+
 .buy-button {
+  width: 50%;
   background-color: rgb(231, 130, 8);
   color: white;
   border: none;
   border-radius: 5px;
-  padding: 10px 15px;
+  padding: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.1s ease; /* Плавный переход для фона и трансформации */
 }
 
 .buy-button:hover {
@@ -39,11 +48,15 @@
   margin: 2px 0; /* Добавляем отступы между строками текста */
 }
 
+.buy-button:active {
+  transform: scale(0.95); /* Эффект сжатия при нажатии */
+}
+
 .ticket-center {
+  flex: 2; /* Занимает 2 части пространства */
   display: flex;
-  align-items: center;
-  flex: 1;
-  justify-content: center;
+  justify-content: space-between; /* Распределяем содержимое по всей ширине */
+  align-items: center; /* Центрируем содержимое по вертикали */
 }
 
 .departure, .arrival {
