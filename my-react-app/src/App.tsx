@@ -1,9 +1,9 @@
-import './App.css';
-
 import React, { useState, useEffect } from 'react';
 import data from './data/tickets.json';
+import Logo from './components/Logo';
 import Filters from './components/Filters';
 import TicketsList from './components/TicketsList';
+import './App.css';
 
 const App: React.FC = () => {
   const [currency, setCurrency] = useState<string>('RUB');
@@ -16,26 +16,17 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Filters currency={currency} setCurrency={setCurrency} stops={stops} setStops={setStops} />
-      <TicketsList tickets={tickets} currency={currency} stops={stops} />
+      <Logo />
+      <div className="container">
+        <div className="filters">
+          <Filters currency={currency} setCurrency={setCurrency} stops={stops} setStops={setStops} />
+        </div>
+        <div className="tickets-list">
+          <TicketsList tickets={tickets} currency={currency} stops={stops} />
+        </div>
+      </div>
     </>
-  )
+  );
 }
 
 export default App;
-
-/* 
-{
-      "origin": "VVO",
-      "origin_name": "Владивосток",
-      "destination": "TLV", //место назначения
-      "destination_name": "Тель-Авив", //название места назначения
-      "departure_date": "12.05.18", //дата отправления
-      "departure_time": "16:20", //время отправления
-      "arrival_date": "12.05.18", // дата прибытия
-      "arrival_time": "22:10", //время прибытия
-      "carrier": "TK", //перевозчик, авиакомпания
-      "stops": 3, //количество пересадок
-      "price": 12400
-    },
-*/
