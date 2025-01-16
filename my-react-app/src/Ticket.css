@@ -1,0 +1,73 @@
+.ticket {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px ;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 0;
+  margin-bottom: 10px;
+  background-color: #fff;
+  transition: box-shadow 0.3s ease; /* Плавный переход для тени */
+}
+
+.ticket:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Добавляем тень при наведении */
+}
+
+.ticket-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.buy-button {
+  background-color: rgb(231, 130, 8);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buy-button:hover {
+  background-color: rgb(242, 163, 45); /* Светло-оранжевый цвет при наведении */
+}
+
+.buy-button div {
+  margin: 2px 0; /* Добавляем отступы между строками текста */
+}
+
+.ticket-center {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+
+.departure, .arrival {
+  text-align: left;
+}
+
+.arrow {
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+.flight-time {
+  font-size: 2em; /* Увеличиваем размер шрифта */
+  font-weight: bold; /* Делаем шрифт жирным */
+  color: #333; /* Более темный цвет для времени */
+}
+
+/* Стиль для мест вылета и прибытия */
+.flight-location {
+  font-size: 1.2em; /* Увеличиваем размер шрифта для мест */
+  font-weight: bold; /* Делаем шрифт жирным */
+  color: #333; /* Более темный цвет для мест */
+}
+
+.flight-date {
+  color: #aaa; /* Светло-серый цвет для дат */
+}
