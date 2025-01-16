@@ -1,4 +1,5 @@
 import React from "react";
+import '../Ticket.css';
 
 interface Props {
   origin: string;
@@ -16,7 +17,7 @@ interface Props {
 
 interface TicketProps {
   ticket: Props; //////? переименовать свойство
-  currency: string; //// мб это число
+  currency: string;
 }
 
 const Ticket: React.FC<TicketProps> = ({ ticket, currency }) => {
@@ -25,25 +26,41 @@ const Ticket: React.FC<TicketProps> = ({ ticket, currency }) => {
       case 'РУБ':
         return price;
       case 'USD':
-        return price / 75; // Примерный курс
+        return Number((price / 75).toFixed(2)) // Примерный курс
       case 'EUR':
-        return price / 90; // Примерный курс
+        return Number((price / 90).toFixed(2)); // Примерный курс
       default:
         return price;
     }
   };
 
   return (
-    <>
-      <h3>{ticket.carrier}</h3>
-      <button>Купить за {convertCurrency(ticket.price).toFixed(2)} {currency}</button>
-      <p>
-        {ticket.departure_time} - {ticket.arrival_time}
-      </p>
-      <p>{ticket.origin}, {ticket.origin_name} - {ticket.destination}, {ticket.destination_name}</p>
-      <p>{ticket.departure_date} - {ticket.arrival_date}</p>
-      <p>Количество пересадок: {ticket.stops}</p>
-    </>
+    <div className="ticket">
+      <div className="ticket-left">
+        <h3>{ticket.carrier}</h3>
+        <button className="buy-button">
+          <div>
+            Купить 
+          </div>
+          <div>
+            за {convertCurrency(ticket.price)} {currency}
+          </div>
+        </button>
+      </div>
+      <div className="ticket-center">
+        <div className="departure">
+          <p className="flight-time">{ticket.departure_time}</p>
+          <p className="flight-location">{ticket.origin}, {ticket.origin_name}</p>
+          <p className="flight-date">{ticket.departure_date}</p>
+        </div>
+        <div className="arrow">{ticket.stops} пересадок</div>
+        <div className="arrival">
+          <p className="flight-time">{ticket.arrival_time}</p>
+          <p className="flight-location">{ticket.destination_name}, {ticket.destination}</p>
+          <p className="flight-date">{ticket.arrival_date}</p>
+        </div>
+      </div>
+    </div>
   )
 };
 
