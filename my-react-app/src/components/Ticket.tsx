@@ -1,4 +1,6 @@
 import React from "react";
+import getCarrierLogo from "../utils/getCarrierLogo";
+import formatDate from "../utils/formatDate";
 import '../Ticket.css';
 
 interface Props {
@@ -26,9 +28,9 @@ const Ticket: React.FC<TicketProps> = ({ ticket, currency }) => {
       case 'РУБ':
         return price;
       case 'USD':
-        return Number((price / 75).toFixed(2)) // Примерный курс
+        return Math.round((price / 75)) // Примерный курс
       case 'EUR':
-        return Number((price / 90).toFixed(2)); // Примерный курс
+        return Math.round((price / 90)); // Примерный курс
       default:
         return price;
     }
@@ -37,7 +39,11 @@ const Ticket: React.FC<TicketProps> = ({ ticket, currency }) => {
   return (
     <div className="ticket">
       <div className="ticket-left">
-        <h3>{ticket.carrier}</h3>
+        <img
+          src={getCarrierLogo(ticket.carrier)}
+          alt={`${ticket.carrier} logo`}
+          className="airline-logo"
+        />
         <button className="buy-button">
           <div>
             Купить 
@@ -51,13 +57,13 @@ const Ticket: React.FC<TicketProps> = ({ ticket, currency }) => {
         <div className="departure">
           <p className="flight-time">{ticket.departure_time}</p>
           <p className="flight-location">{ticket.origin}, {ticket.origin_name}</p>
-          <p className="flight-date">{ticket.departure_date}</p>
+          <p className="flight-date">{formatDate(ticket.departure_date)}</p>
         </div>
         <div className="arrow">{ticket.stops} пересадок</div>
         <div className="arrival">
           <p className="flight-time">{ticket.arrival_time}</p>
           <p className="flight-location">{ticket.destination_name}, {ticket.destination}</p>
-          <p className="flight-date">{ticket.arrival_date}</p>
+          <p className="flight-date">{formatDate(ticket.arrival_date)}</p>
         </div>
       </div>
     </div>
