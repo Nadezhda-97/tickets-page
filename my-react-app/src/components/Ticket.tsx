@@ -1,6 +1,10 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
+
 import getCarrierLogo from "../utils/getCarrierLogo";
 import formatDate from "../utils/formatDate";
+import convertCurrency from "../utils/conversCurrency";
+import getTransferText from "../utils/getTransferText";
 import '../Ticket.css';
 
 interface Props {
@@ -23,18 +27,7 @@ interface TicketProps {
 }
 
 const Ticket: React.FC<TicketProps> = ({ ticket, currency }) => {
-  const convertCurrency = (price: number): number => {
-    switch (currency) {
-      case 'РУБ':
-        return price;
-      case 'USD':
-        return Math.round((price / 75)) // Примерный курс
-      case 'EUR':
-        return Math.round((price / 90)); // Примерный курс
-      default:
-        return price;
-    }
-  };
+  const { t } = useTranslation();
 
   return (
     <div className="ticket">
@@ -46,10 +39,10 @@ const Ticket: React.FC<TicketProps> = ({ ticket, currency }) => {
         />
         <button className="buy-button">
           <div>
-            Купить 
+            {t('button_buy')}
           </div>
           <div>
-            за {convertCurrency(ticket.price)} {currency}
+            {t('button_for')} {convertCurrency(ticket.price, currency)} {currency}
           </div>
         </button>
       </div>
@@ -59,7 +52,7 @@ const Ticket: React.FC<TicketProps> = ({ ticket, currency }) => {
           <p className="flight-location">{ticket.origin}, {ticket.origin_name}</p>
           <p className="flight-date">{formatDate(ticket.departure_date)}</p>
         </div>
-        <div className="arrow">{ticket.stops} пересадок</div>
+        <div className="arrow">{getTransferText(ticket.stops, t)}</div>
         <div className="arrival">
           <p className="flight-time">{ticket.arrival_time}</p>
           <p className="flight-location">{ticket.destination_name}, {ticket.destination}</p>
