@@ -15,19 +15,24 @@ const Stops: React.FC<StopsProps> = ({ stops, setStops }) => {
   };
 
   return (
-    <>
+    <div className="checkbox-container">
       <h3>Количество пересадок</h3>
       {[0, 1, 2, 3].map(stop => (
-        <label key={stop}>
+        <div key={stop}>
           <input
             type="checkbox"
+            id={`stop-${stop}`}
+            className="checkbox-input"
             checked={stops.includes(stop)}
             onChange={() => handleStopsChange(stop)}
           />
-          {stop === 0 ? 'Без пересадок' : `${stop} пересадок`}
-        </label>
+          <label htmlFor={`stop-${stop}`} className="checkbox-label">
+            <span className="checkbox-square"></span>
+            {stop === 0 ? 'Без пересадок' : `${stop} пересадка(и)`}
+          </label>
+        </div>
       ))}
-    </>
+    </div>
   );
 };
 
