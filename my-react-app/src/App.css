@@ -17,6 +17,7 @@ h3 {
 }
 
 .filters {
+  position: sticky;
   width: 30%;
   height: 20%;
   padding: 20px;
@@ -32,8 +33,16 @@ h3 {
   border-radius: 8px;
 }
 
-button {
-  padding: 10px 15px;
+.currency-selector {
+  display: flex; /* Используем flexbox для управления кнопками */
+  justify-content: space-between; /* Распределяем кнопки по ширине */
+  width: 100%; /* Ширина контейнера 100% */
+}
+
+.currency-button {
+  flex: 1; /* Каждая кнопка занимает равную долю пространства */
+  margin: 0 5px; /* Добавляем небольшой отступ между кнопками */
+  padding: 10px; /* Добавляем внутренние отступы для кнопок */
   border: 1px solid #ccc; /* Серая рамка для неактивных кнопок */
   border-radius: 5px;
   cursor: pointer;
