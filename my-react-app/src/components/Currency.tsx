@@ -11,12 +11,12 @@ const Currency: React.FC<CurrencyProps> = ({ currency, setCurrency }) => {
   return (
     <div>
       <h3>Валюта</h3>
-      <div>
+      <div className="currency-selector">
         {currencies.map((curr) => (
           <button
             key={curr}
             onClick={() => setCurrency(curr)}
-            className={currency === curr ? 'active-button' : ''}
+            className={`currency-button ${currency === curr ? 'active-button' : ''}`}
           >
             {curr}
           </button>
