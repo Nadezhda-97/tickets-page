@@ -1,4 +1,6 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
+import getTransferText from "../utils/getTransferText";
 
 interface StopsProps {
   stops: number[];
@@ -6,6 +8,19 @@ interface StopsProps {
 }
 
 const Stops: React.FC<StopsProps> = ({ stops, setStops }) => {
+  const { t } = useTranslation();
+
+  const stopsCount: number[] = [0, 1, 2, 3];
+  const allChecked: boolean = stops.length === stopsCount.length;
+
+  const handleAllStopsChange = () => {
+    if (allChecked) {
+      setStops([]); // Если все отмечены, очищаем
+    } else {
+      setStops([...stopsCount]); // Если не все, добавляем все
+    }
+  };
+
   const handleStopsChange = (stopsCount: number) => {
     if (stops.includes(stopsCount)) {
       setStops(stops.filter(stop => stop !== stopsCount));
@@ -16,8 +31,19 @@ const Stops: React.FC<StopsProps> = ({ stops, setStops }) => {
 
   return (
     <div className="checkbox-container">
-      <h3>Количество пересадок</h3>
-      {[0, 1, 2, 3].map(stop => (
+      <h3>{t('choose_transfers')}</h3>
+      <input
+          type="checkbox"
+          id="allChecked"
+          className="checkbox-input"
+          checked={allChecked}
+          onChange={handleAllStopsChange}
+        />
+      <label htmlFor="allChecked" className="checkbox-label">
+        <span className="checkbox-square"></span>
+        {t('select_all')}
+      </label>
+      {stopsCount.map(stop => (
         <div key={stop}>
           <input
             type="checkbox"
@@ -28,7 +54,7 @@ const Stops: React.FC<StopsProps> = ({ stops, setStops }) => {
           />
           <label htmlFor={`stop-${stop}`} className="checkbox-label">
             <span className="checkbox-square"></span>
-            {stop === 0 ? 'Без пересадок' : `${stop} пересадка(и)`}
+            {getTransferText(stop, t)}
           </label>
         </div>
       ))}
@@ -37,3 +63,5 @@ const Stops: React.FC<StopsProps> = ({ stops, setStops }) => {
 };
 
 export default Stops;
+
+// {stop === 0 ? t('no_transfers') : t('transfers.count', { count: stop })}
