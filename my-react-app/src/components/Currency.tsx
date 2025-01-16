@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 
 interface CurrencyProps {
   currency: string;
@@ -6,11 +7,12 @@ interface CurrencyProps {
 }
 
 const Currency: React.FC<CurrencyProps> = ({ currency, setCurrency }) => {
+  const { t } = useTranslation();
   const currencies = ['RUB', 'USD', 'EUR'];
 
   return (
     <div>
-      <h3>Валюта</h3>
+      <h3>{t('currency')}</h3>
       <div className="currency-selector">
         {currencies.map((curr) => (
           <button
