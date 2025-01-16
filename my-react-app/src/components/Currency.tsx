@@ -9,19 +9,21 @@ const Currency: React.FC<CurrencyProps> = ({ currency, setCurrency }) => {
   const currencies = ['RUB', 'USD', 'EUR'];
 
   return (
-    <>
+    <div>
       <h3>Валюта</h3>
       <div>
         {currencies.map((curr) => (
-          <button key={curr} onClick={() => setCurrency(curr)}>
+          <button
+            key={curr}
+            onClick={() => setCurrency(curr)}
+            className={currency === curr ? 'active-button' : ''}
+          >
             {curr}
           </button>
         ))}
       </div>
-    </>
+    </div>
   )
 };
 
 export default Currency;
-
-// каждая валюта - это кнопка, а не чекбокс
