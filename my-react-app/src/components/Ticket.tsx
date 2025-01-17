@@ -5,24 +5,11 @@ import getCarrierLogo from "../utils/getCarrierLogo";
 import formatDate from "../utils/formatDate";
 import convertCurrency from "../utils/conversCurrency";
 import getTransferText from "../utils/getTransferText";
-import '../Ticket.css';
-
-interface Props {
-  origin: string;
-  origin_name: string;
-  destination: string;
-  destination_name: string;
-  departure_date: string;
-  departure_time: string;
-  arrival_date: string;
-  arrival_time: string;
-  carrier: string;
-  stops: number;
-  price: number;
-}
+import { TicketItem } from "../types/TicketItem";
+import '../styles/Ticket.css';
 
 interface TicketProps {
-  ticket: Props; //////? переименовать свойство
+  ticket: TicketItem;
   currency: string;
 }
 
