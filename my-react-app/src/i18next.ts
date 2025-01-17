@@ -7,12 +7,12 @@ i18n
     resources: {
         en: {
           translation: {
-            "transfers": "{{count}} Transfer",
-            "transfers_few": "{{count}} Transfers",
-            "currency": "Currency",
-            "choose_transfers": "Choose transfers count",
-            "no_transfers": "No Transfers",
-            "select_all": "Select All Options",
+            "transfers": "{{count}} transfer",
+            "transfers_few": "{{count}} transfers",
+            "currency": "CURRENCY",
+            "choose_transfers": "CHOOSE TRANSFERS COUNT",
+            "no_transfers": "No transfers",
+            "select_all": "Select all options",
             "button_buy": "Buy ",
             "button_for": "for ",
           }
@@ -21,8 +21,8 @@ i18n
           translation: {
             "transfers": "{{count}} пересадка",
             "transfers_few": "{{count}} пересадки",
-            "currency": "Валюта",
-            "choose_transfers": "Количество пересадок",
+            "currency": "ВАЛЮТА",
+            "choose_transfers": "КОЛИЧЕСТВО ПЕРЕСАДОК",
             "no_transfers": "Без пересадок",
             "select_all": "Все",
             "button_buy": "Купить ",
