@@ -5,12 +5,13 @@ import Logo from './components/Logo';
 import LanguageButtons from './components/LanguageButtons';
 import Filters from './components/Filters';
 import TicketsList from './components/TicketsList';
-import './App.css';
+import { TicketItem } from './types/TicketItem';
+import './styles/App.css';
 
 const App: React.FC = () => {
   const [currency, setCurrency] = useState<string>('RUB');
   const [stops, setStops] = useState<number[]>([]);
-  const [tickets, setTickets] = useState<any[]>([]); //////
+  const [tickets, setTickets] = useState<TicketItem[]>([]);
 
   useEffect(() => {
     setTickets(data.tickets);
