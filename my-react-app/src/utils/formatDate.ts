@@ -1,4 +1,3 @@
-// src/utils/dateFormatter.ts
 const formatDate = (dateString: string): string => {
     const date = new Date(dateString);
     const options: Intl.DateTimeFormatOptions = {
