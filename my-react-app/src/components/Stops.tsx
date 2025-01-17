@@ -15,9 +15,9 @@ const Stops: React.FC<StopsProps> = ({ stops, setStops }) => {
 
   const handleAllStopsChange = () => {
     if (allChecked) {
-      setStops([]); // Если все отмечены, очищаем
+      setStops([]);
     } else {
-      setStops([...stopsCount]); // Если не все, добавляем все
+      setStops([...stopsCount]);
     }
   };
 
@@ -63,5 +63,3 @@ const Stops: React.FC<StopsProps> = ({ stops, setStops }) => {
 };
 
 export default Stops;
-
-// {stop === 0 ? t('no_transfers') : t('transfers.count', { count: stop })}
