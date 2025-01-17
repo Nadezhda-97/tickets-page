@@ -1,16 +1,17 @@
 import React from "react";
 import Ticket from "./Ticket";
+import { TicketItem } from "../types/TicketItem";
 
 interface TicketsListProps {
-  tickets: any[]; //////
+  tickets: TicketItem[];
   currency: string;
   stops: number[];
 }
 
 const TicketsList: React.FC<TicketsListProps> = ({ tickets, currency, stops }) => {
   const filteredTickets = tickets.filter(ticket => stops.includes(ticket.stops) || stops.length === 0);
-  
   const sortedTickets = filteredTickets.sort((a, b) => a.price - b.price);
+
   return (
     <>
       {sortedTickets.map(ticket => (
