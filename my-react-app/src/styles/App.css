@@ -1,0 +1,158 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+h3 {
+  color: #333;
+}
+
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.logo-container img {
+  width: 60px;
+  height: auto;
+}
+
+.language-buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 20px;
+}
+
+.language-button {
+  display: block;
+  width: 150px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s;
+}
+
+.language-button:hover {
+  background-color: #87ceeb;
+}
+
+.language-button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.language-button:active {
+  transform: scale(0.95);
+}
+
+.filters {
+  position: sticky;
+  top: 10px;
+  z-index: 1000;
+  width: 30%;
+  height: 20%;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.tickets-list {
+  width: 70%;
+  padding: 0 20px 0 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+}
+
+.currency-selector {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.currency-button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  background-color: white;
+  color: #007BFF;
+  margin: 0;
+}
+
+.currency-button:hover {
+  background-color: #e7f1ff;
+  border-color: #007BFF;
+}
+
+.active-button {
+  background-color: #007BFF;
+  color: #fff;
+  border: 1px solid #007BFF;
+}
+
+.checkbox-container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.checkbox-input {
+  display: none;
+}
+
+.checkbox-square {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-right: 10px;
+  background-color: white;
+  position: relative;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.checkbox-input:checked + .checkbox-label .checkbox-square {
+  border-color: #007BFF;
+  background-color: #e7f1ff;
+}
+
+.checkbox-label:hover {
+  background-color: #e7f1ff;
+}
+
+.checkbox-input:checked + .checkbox-label .checkbox-square::before {
+  content: '✔';
+  color: #007BFF;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+}
